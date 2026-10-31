@@ -1,0 +1,6 @@
+Test_Type,Resampling_Unit,Sample_Size,Test_Statistic,p_value,Estimate_Mean_Diff_bu,Confidence_Interval_95,Validity_Assessment
+Naive Row-Level Wilcoxon Signed-Rank,Pooled row pairs (county-year),450,9253.0,4.73e-51,15.89,N/A (Invalid i.i.d. assumption),INVALID / SEVERELY INFLATED (Pseudoreplication: ignores spatial-temporal clustering)
+County-Aggregated Paired Wilcoxon,County mean MAE (75 clusters),75,0.0,5.28e-14,15.89,N/A,VALID FOR SPATIAL CLUSTERING (75 independent county entities)
+Year-Aggregated Paired Wilcoxon,Year mean MAE (6 annual macro-climatic blocks),6,0.0,0.0312,15.89,N/A,"VALID FOR TEMPORAL CLUSTERING (T=6 years, p=0.0312)"
+Paired County-Cluster Bootstrap (B=2000),Entire 6-year county trajectories (75 clusters),75,Bootstrap Empirical Distribution,p < 0.0005 (0 / 2000 bootstrap draws <= 0),15.88,"[14.44, 17.36]",HIGHLY RIGOROUS: Controls for arbitrary intra-county error autocorrelation
+Paired Year-Block Bootstrap (B=2000),Annual cross-sectional year blocks (6 clusters),6,Bootstrap Empirical Distribution,p = 0.001 (0 / 2000 bootstrap draws <= 0),15.77,"[9.52, 22.65]",CONSERVATIVE: Reflects small temporal test horizon (T=6 years)

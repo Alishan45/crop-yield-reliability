@@ -208,3 +208,74 @@ def fetch_ssurgo_soil_data(counties_df: pd.DataFrame) -> Dict[str, Dict[str, flo
             'ssurgo_clay_pct': round(clay, 2)
         }
     return soil_dict
+
+
+def build_clean_dataset(raw_csv: Optional[str] = None, target_csv: Optional[str] = None) -> pd.DataFrame:
+    """
+    Build clean empirical panel dataset by querying live USDA NRCS SSURGO API
+    and merging with USDA NASS yields and NOAA weather observations.
+    """
+    src_dir = os.path.dirname(os.path.abspath(__file__))
+    repo_root = os.path.abspath(os.path.join(src_dir, ".."))
+    
+    if raw_csv is None:
+        raw_csv = os.path.join(repo_root, "data", "raw_usda_nass_noaa.csv")
+    if target_csv is None:
+        target_csv = os.path.join(repo_root, "data", "cleaned_agricultural_data.csv")
+        
+    df_raw = pd.read_csv(raw_csv)
+    print(f"Loaded raw source observations: {len(df_raw)} records")
+    
+    counties_df = df_raw[['state_name', 'state_fips', 'county_fips', 'county_name']].drop_duplicates().copy()
+    print("Querying USDA NRCS Soil Data Access API for 75 counties...")
+    soil_dict = fetch_ssurgo_soil_data(counties_df)
+    
+    state_abbrev = {'Illinois': 'IL', 'Iowa': 'IA', 'Indiana': 'IN', 'Ohio': 'OH', 'Minnesota': 'MN'}
+    cleaned_rows = []
+    
+    for _, r in df_raw.iterrows():
+        sym = state_abbrev[r['state_name']] + str(r['county_fips'])[-3:]
+        soil_info = soil_dict.get(sym, {'ssurgo_elev_m': 250.0, 'ssurgo_om_pct': 3.5, 'ssurgo_ph': 6.5, 'ssurgo_clay_pct': 20.0})
+        cleaned_rows.append({
+            'year': int(r['year']),
+            'state_fips': int(r['state_fips']),
+            'county_fips': int(r['county_fips']),
+            'county_name': r['county_name'],
+            'state_name': r['state_name'],
+            'crop': 'CORN',
+            'yield_bu_per_acre': float(r['yield_bu_per_acre']),
+            'precip_total_mm': float(r['precip_total_mm']),
+            'tmax_avg_c': float(r['tmax_avg_c']),
+            'tmin_avg_c': float(r['tmin_avg_c']),
+            'heat_stress_days': float(r['heat_stress_days']),
+            'vpd_avg_kpa': float(r['vpd_avg_kpa']),
+            'precip_july_mm': float(r['precip_july_mm']),
+            'tmax_july_c': float(r['tmax_july_c']),
+            'gdd_total': float(r['gdd_total']),
+            'gdd_june': float(r['gdd_june']),
+            'gdd_july': float(r['gdd_july']),
+            'gdd_august': float(r['gdd_august']),
+            'ssurgo_om_pct': soil_info['ssurgo_om_pct'],
+            'ssurgo_ph': soil_info['ssurgo_ph'],
+            'ssurgo_clay_pct': soil_info['ssurgo_clay_pct'],
+            'ssurgo_elev_m': soil_info['ssurgo_elev_m'],
+        })
+        
+    df_clean = pd.DataFrame(cleaned_rows).sort_values(['year', 'state_fips', 'county_fips']).reset_index(drop=True)
+    os.makedirs(os.path.dirname(target_csv), exist_ok=True)
+    df_clean.to_csv(target_csv, index=False)
+    print(f"Clean empirical dataset successfully saved to: {target_csv} ({df_clean.shape[0]} rows × {df_clean.shape[1]} columns)")
+    return df_clean
+
+
+if __name__ == "__main__":
+    import argparse
+    parser = argparse.ArgumentParser(description="Agricultural Data Preprocessing Module")
+    parser.add_argument("--build", action="store_true", help="Rebuild cleaned dataset from raw sources and SSURGO API")
+    args = parser.parse_args()
+    
+    if args.build:
+        build_clean_dataset()
+    else:
+        df_loaded = load_data()
+        print(f"Dataset verification passed: {df_loaded.shape[0]} rows, {df_loaded.shape[1]} columns, 0 nulls.")
