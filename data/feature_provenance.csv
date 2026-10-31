@@ -1,0 +1,22 @@
+feature,provenance_type,primary_source,secondary_source,retrieval_method,status_in_v2,audit_notes
+yield_bu_per_acre,Genuine Empirical,USDA National Agricultural Statistics Service (NASS),Quick Stats API,HTTP GET JSON API,RETAINED (TARGET),Official county crop yield survey data
+precip_total_mm,Genuine Empirical,NOAA National Centers for Environmental Information (NCEI),Climate at a Glance (CAG),HTTP GET JSON API,RETAINED,6-month Apr-Sep cumulative precipitation
+tmax_avg_c,Genuine Empirical,NOAA National Centers for Environmental Information (NCEI),Climate at a Glance (CAG),HTTP GET JSON API,RETAINED,6-month Apr-Sep mean daily maximum temperature
+tmin_avg_c,Genuine Empirical,NOAA National Centers for Environmental Information (NCEI),Climate at a Glance (CAG),HTTP GET JSON API,RETAINED,6-month Apr-Sep mean daily minimum temperature
+precip_july_mm,Genuine Empirical,NOAA National Centers for Environmental Information (NCEI),Climate at a Glance (CAG),HTTP GET JSON API,RETAINED,Single month (July) precipitation
+tmax_july_c,Genuine Empirical,NOAA National Centers for Environmental Information (NCEI),Climate at a Glance (CAG),HTTP GET JSON API,RETAINED,Single month (July) maximum temperature
+gdd_total,Derived Empirical,NOAA NCEI Cooling Degree Days (CDD),Empirical thermal sum proxy,Computed from CAG CDD,RETAINED,Calculated as CDD * 1.5 + 1500
+gdd_june,Derived Empirical,NOAA NCEI Cooling Degree Days (CDD),Empirical thermal sum proxy,Computed from June CAG CDD,RETAINED,Calculated as June CDD * 1.5 + 400
+gdd_july,Derived Empirical,NOAA NCEI Cooling Degree Days (CDD),Empirical thermal sum proxy,Computed from July CAG CDD,RETAINED,Calculated as July CDD * 1.5 + 500
+gdd_august,Derived Empirical,NOAA NCEI Cooling Degree Days (CDD),Empirical thermal sum proxy,Computed from August CAG CDD,RETAINED,Calculated as August CDD * 1.5 + 450
+vpd_avg_kpa,Derived Empirical,Tetens Saturation Vapor Pressure Formula,NOAA Tmax and Tmin,Deterministic physical equation,RETAINED,Calculated via standard agronomic Tetens formulation
+heat_stress_days,Derived Empirical,NOAA July Tmax,Threshold exceedance,Deterministic threshold model,RETAINED,Estimated days with Tmax > 27.5C in July
+ssurgo_om_pct,Genuine Empirical,USDA Natural Resources Conservation Service (NRCS),Soil Data Access (SDA) REST API,SQL aggregation over SSURGO tables,ADDED (NEW EMPIRICAL),Replaces synthetic soil_organic_matter with official SSURGO surface OM %
+ssurgo_ph,Genuine Empirical,USDA Natural Resources Conservation Service (NRCS),Soil Data Access (SDA) REST API,SQL aggregation over SSURGO tables,ADDED (NEW EMPIRICAL),Replaces synthetic soil_ph with official SSURGO surface pH
+ssurgo_clay_pct,Genuine Empirical,USDA Natural Resources Conservation Service (NRCS),Soil Data Access (SDA) REST API,SQL aggregation over SSURGO tables,ADDED (NEW EMPIRICAL),New empirical soil texture variable from SSURGO chorizon table
+ssurgo_elev_m,Genuine Empirical,USDA Natural Resources Conservation Service (NRCS),Soil Data Access (SDA) REST API,SQL aggregation over SSURGO component table,ADDED (NEW EMPIRICAL),Replaces synthetic elevation_m with official SSURGO component elev_r
+soil_organic_matter,Synthetic (Fabricated),None (Formula on county FIPS hash),Previous AI agent,Deterministic formula,REMOVED,Audit Finding 1: Fabricated proxy for county identity
+soil_ph,Synthetic (Fabricated),None (Formula on county FIPS hash),Previous AI agent,Deterministic formula,REMOVED,Audit Finding 1: Fabricated proxy
+elevation_m,Synthetic (Fabricated),None (Formula on county FIPS hash),Previous AI agent,Deterministic formula,REMOVED,Audit Finding 1: Fabricated proxy
+ndvi_peak,Synthetic (Fabricated),None (Formula on precipitation & soil hash),Previous AI agent,Deterministic formula,REMOVED,Audit Finding 1: Fabricated proxy
+region,Coarse Categorical,Ad-hoc binary grouping,Previous AI agent,Manual categorization,REMOVED,Audit Finding 4: Imbalanced (4 states Midwest_North, 1 state Midwest_East)

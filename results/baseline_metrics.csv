@@ -1,0 +1,6 @@
+Model,Test_MAE,Test_RMSE,Test_R2,N_test
+Dummy (mean),22.85,29.748,-0.0003,360
+Ridge,19.406,24.278,0.3338,360
+RandomForest,17.48,22.549,0.4253,360
+HistGradientBoosting,14.01,18.365,0.6188,360
+LightGBM,14.83,19.339,0.5773,360

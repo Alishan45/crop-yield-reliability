@@ -1,0 +1,6 @@
+Held_Out_State,Nominal_Coverage_%,Empirical_Coverage_%,Interval_Width_bu,N_test
+Ohio,90.0,68.89,43.11,360
+Minnesota,90.0,85.28,46.27,360
+Iowa,90.0,88.61,43.41,360
+Indiana,90.0,76.11,47.28,360
+Illinois,90.0,60.83,46.11,360

@@ -1,0 +1,93 @@
+# Research V2 Experiment Configuration
+random_seed: 42
+
+data:
+  dataset_path: "data/cleaned_agricultural_data.csv"
+  target_col: "yield_bu_per_acre"
+  year_col: "year"
+  geo_col: "county_fips"
+  state_col: "state_name"
+  
+identifiers:
+  - "year"
+  - "state_fips"
+  - "county_fips"
+  - "county_name"
+  - "state_name"
+  - "crop"
+
+features:
+  weather:
+    - "precip_total_mm"
+    - "tmax_avg_c"
+    - "tmin_avg_c"
+    - "heat_stress_days"
+    - "vpd_avg_kpa"
+    - "precip_july_mm"
+    - "tmax_july_c"
+    - "gdd_total"
+    - "gdd_june"
+    - "gdd_july"
+    - "gdd_august"
+  soil_terrain:
+    - "ssurgo_om_pct"
+    - "ssurgo_ph"
+    - "ssurgo_clay_pct"
+    - "ssurgo_elev_m"
+
+models:
+  Dummy:
+    strategy: "mean"
+  Ridge:
+    alpha: 1.0
+  RandomForest:
+    n_estimators: 100
+    max_depth: 5
+    random_state: 42
+    n_jobs: 1
+  HistGradientBoosting:
+    max_iter: 100
+    max_depth: 5
+    random_state: 42
+  LightGBM:
+    n_estimators: 100
+    max_depth: 5
+    learning_rate: 0.05
+    random_state: 42
+    verbose: -1
+
+evaluation:
+  random_split:
+    test_size: 0.20
+    random_state: 42
+  temporal_split:
+    train_end_year: 2017
+    test_start_year: 2018
+  expanding_window:
+    start_year: 2015
+    end_year: 2021
+  geographic_loso:
+    group_col: "state_name"
+
+trend_modes:
+  - "raw_level"
+  - "trend_aware"
+  - "yield_anomaly"
+
+uncertainty:
+  nominal_levels:
+    - 0.80
+    - 0.90
+    - 0.95
+  calibration_fraction: 0.20
+  decay_gamma_candidates:
+    - 0.85
+    - 0.90
+    - 0.95
+    - 0.98
+    - 1.00
+  aci_gamma: 0.05
+
+shap:
+  sample_size: 200
+  n_folds: 7

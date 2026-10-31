@@ -1,0 +1,13 @@
+Method,Base_Model,Nominal_Coverage_%,Interval_Mean_Width_bu,Interval_Median_Width_bu,IID_Random_Coverage_%,Temporal_Shift_Coverage_%,Temporal_Coverage_95CI,Coverage_Deficit_pp,Runtime_sec,Notes
+Standard Split Conformal (SCP),Raw Level (Approach A),80.0,39.21,39.21,76.11,35.56,"[31.27%, 40.08%]",-44.44,0.0001,Naive baseline: demonstrates severe coverage collapse under drift
+Standard Split Conformal (SCP),Detrended Anomaly (Approach C),80.0,32.43,32.43,85.83,74.22,"[69.99%, 78.05%]",-5.78,0.0001,Detrending reduces residual drift significantly
+Time-Decayed WCP (gamma=0.85),Detrended Anomaly (Approach C),80.0,33.04,33.04,85.83,75.11,"[70.92%, 78.88%]",-4.89,0.0002,Proposed method: weights recent calibration points higher
+"Adaptive Conformal (ACI, eta=0.05)",Detrended Anomaly (Approach C),80.0,32.65,32.71,85.83,74.89,"[70.68%, 78.67%]",-5.11,0.0028,Sequential online calibration update improves empirical coverage
+Standard Split Conformal (SCP),Raw Level (Approach A),90.0,51.66,51.66,83.33,48.44,"[43.86%, 53.06%]",-41.56,0.0001,Naive baseline: demonstrates severe coverage collapse under drift
+Standard Split Conformal (SCP),Detrended Anomaly (Approach C),90.0,43.33,43.33,91.94,85.56,"[82.01%, 88.5%]",-4.44,0.0001,Detrending reduces residual drift significantly
+Time-Decayed WCP (gamma=0.85),Detrended Anomaly (Approach C),90.0,47.37,47.37,91.94,88.44,"[85.16%, 91.08%]",-1.56,0.0001,Proposed method: weights recent calibration points higher
+"Adaptive Conformal (ACI, eta=0.05)",Detrended Anomaly (Approach C),90.0,44.48,44.59,91.94,86.67,"[83.21%, 89.5%]",-3.33,0.0025,Sequential online calibration update improves empirical coverage
+Standard Split Conformal (SCP),Raw Level (Approach A),95.0,64.78,64.78,88.61,63.33,"[58.79%, 67.66%]",-31.67,0.0001,Naive baseline: demonstrates severe coverage collapse under drift
+Standard Split Conformal (SCP),Detrended Anomaly (Approach C),95.0,57.13,57.13,95.83,94.22,"[91.67%, 96.03%]",-0.78,0.0001,Detrending reduces residual drift significantly
+Time-Decayed WCP (gamma=0.85),Detrended Anomaly (Approach C),95.0,57.13,57.13,95.83,94.22,"[91.67%, 96.03%]",-0.78,0.0001,Proposed method: weights recent calibration points higher
+"Adaptive Conformal (ACI, eta=0.05)",Detrended Anomaly (Approach C),95.0,57.57,57.94,95.83,93.78,"[91.15%, 95.66%]",-1.22,0.0036,Sequential online calibration update improves empirical coverage

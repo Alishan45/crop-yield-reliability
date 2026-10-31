@@ -1,0 +1,13 @@
+Nominal_Coverage_%,Method,Base_Model,Mean_Width_bu,Empirical_Coverage_%,Wilson_95CI,CountyCluster_95CI,YearBlock_95CI,Coverage_Deficit_pp
+80,Naive SCP (Raw),Raw Level (Approach A),39.21,35.56,"[31.3%, 40.1%]","[31.3%, 40.0%]","[22.0%, 51.1%]",-44.44
+80,Detrended SCP,Detrended Anomaly (Approach C),32.43,74.22,"[70.0%, 78.0%]","[69.8%, 78.4%]","[67.3%, 80.7%]",-5.78
+80,Time-Decayed WCP (gamma=0.85),Detrended Anomaly (Approach C),33.04,75.11,"[70.9%, 78.9%]","[70.9%, 79.3%]","[68.0%, 81.8%]",-4.89
+80,"Adaptive Conformal (ACI, eta=0.05)",Detrended Anomaly (Approach C),32.65,74.89,"[70.7%, 78.7%]","[70.7%, 79.1%]","[67.3%, 81.8%]",-5.11
+90,Naive SCP (Raw),Raw Level (Approach A),51.66,48.44,"[43.9%, 53.1%]","[43.3%, 53.3%]","[33.6%, 63.6%]",-41.56
+90,Detrended SCP,Detrended Anomaly (Approach C),43.33,85.56,"[82.0%, 88.5%]","[81.8%, 89.1%]","[78.2%, 91.6%]",-4.44
+90,Time-Decayed WCP (gamma=0.85),Detrended Anomaly (Approach C),47.37,88.44,"[85.2%, 91.1%]","[85.1%, 91.6%]","[80.9%, 93.8%]",-1.56
+90,"Adaptive Conformal (ACI, eta=0.05)",Detrended Anomaly (Approach C),44.48,86.67,"[83.2%, 89.5%]","[83.1%, 89.8%]","[78.9%, 92.7%]",-3.33
+95,Naive SCP (Raw),Raw Level (Approach A),64.78,63.33,"[58.8%, 67.7%]","[58.4%, 68.0%]","[46.7%, 80.2%]",-31.67
+95,Detrended SCP,Detrended Anomaly (Approach C),57.13,94.22,"[91.7%, 96.0%]","[92.0%, 96.2%]","[88.9%, 98.4%]",-0.78
+95,Time-Decayed WCP (gamma=0.85),Detrended Anomaly (Approach C),57.13,94.22,"[91.7%, 96.0%]","[92.0%, 96.2%]","[88.9%, 98.4%]",-0.78
+95,"Adaptive Conformal (ACI, eta=0.05)",Detrended Anomaly (Approach C),57.57,93.78,"[91.2%, 95.7%]","[91.3%, 96.0%]","[87.1%, 98.7%]",-1.22

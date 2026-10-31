@@ -1,0 +1,16 @@
+feature,mean_abs_shap,category,rank
+precip_july_mm,4.913731397807904,Weather,1
+ssurgo_ph,4.578146029392121,Soil/Terrain,2
+heat_stress_days,3.6970717832273836,Weather,3
+ssurgo_om_pct,3.437207323500952,Soil/Terrain,4
+ssurgo_elev_m,3.315285777647666,Soil/Terrain,5
+gdd_june,2.7691401018288904,Weather,6
+gdd_august,2.019821542807972,Weather,7
+vpd_avg_kpa,1.6650235635975688,Weather,8
+tmax_avg_c,1.4726813876374272,Weather,9
+tmin_avg_c,1.1599900434931003,Weather,10
+precip_total_mm,1.1218023969195814,Weather,11
+ssurgo_clay_pct,0.9877766762272974,Soil/Terrain,12
+gdd_total,0.8862450340733037,Weather,13
+gdd_july,0.7985120772816748,Weather,14
+tmax_july_c,0.06766086721696472,Weather,15

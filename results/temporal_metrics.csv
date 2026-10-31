@@ -1,0 +1,17 @@
+Approach,Model,Test_MAE,Test_RMSE,Test_R2,Notes
+Linear Trend Baseline (No Weather),OLS Linear Trend,16.937,21.138,-0.0301,Fitted trend: +2.09 bu/ac/year
+"Approach A (Raw Level, No Trend)",Dummy (mean),32.749,37.037,-2.1625,Suffers from historical underprediction drift
+"Approach A (Raw Level, No Trend)",Ridge,30.494,34.723,-1.7798,Suffers from historical underprediction drift
+"Approach A (Raw Level, No Trend)",RandomForest,29.077,33.091,-1.5246,Suffers from historical underprediction drift
+"Approach A (Raw Level, No Trend)",HistGradientBoosting,27.63,31.59,-1.3007,Suffers from historical underprediction drift
+"Approach A (Raw Level, No Trend)",LightGBM,27.528,31.43,-1.2774,Suffers from historical underprediction drift
+Approach B (Trend-Aware Feature),Dummy (mean),32.749,37.037,-2.1625,Model extrapolates trend feature
+Approach B (Trend-Aware Feature),Ridge,16.658,21.539,-0.0696,Model extrapolates trend feature
+Approach B (Trend-Aware Feature),RandomForest,14.948,18.55,0.2067,Model extrapolates trend feature
+Approach B (Trend-Aware Feature),HistGradientBoosting,13.354,17.053,0.3295,Model extrapolates trend feature
+Approach B (Trend-Aware Feature),LightGBM,13.824,17.352,0.3058,Model extrapolates trend feature
+Approach C (Yield-Anomaly Detrending),Dummy (mean),16.937,21.138,-0.0301,Isolates pure weather-response anomaly
+Approach C (Yield-Anomaly Detrending),Ridge,16.097,20.982,-0.015,Isolates pure weather-response anomaly
+Approach C (Yield-Anomaly Detrending),RandomForest,13.222,16.598,0.3648,Isolates pure weather-response anomaly
+Approach C (Yield-Anomaly Detrending),HistGradientBoosting,11.736,15.143,0.4713,Isolates pure weather-response anomaly
+Approach C (Yield-Anomaly Detrending),LightGBM,11.58,14.772,0.4969,Isolates pure weather-response anomaly

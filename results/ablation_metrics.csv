@@ -1,0 +1,6 @@
+Feature_Subset,N_features,Test_MAE,Test_RMSE,Test_R2
+Full (Weather + Soil),15,11.736,15.143,0.4713
+Weather Only (11 feats),11,15.478,19.607,0.1137
+Soil & Terrain Only (4 feats),4,13.134,16.472,0.3744
+"July Critical Window Only (precip_july, tmax_july, gdd_july)",3,15.791,19.818,0.0945
+No July Weather (9 weather + 4 soil),12,12.452,16.03,0.4076

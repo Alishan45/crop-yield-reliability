@@ -1,0 +1,23 @@
+feature_name,category,data_type,units,source,spatial_resolution,temporal_resolution,availability_date,description
+year,Identifier,integer,years,USDA NASS,County,Annual,Pre-season,Observation year (2000-2023)
+state_fips,Identifier,integer,code,US Census Bureau,State,Static,Pre-season,Federal Information Processing Standard 2-digit state code
+county_fips,Identifier,integer,code,US Census Bureau,County,Static,Pre-season,FIPS 5-digit county code
+county_name,Identifier,string,name,USDA NASS,County,Static,Pre-season,County administrative name
+state_name,Identifier,string,name,USDA NASS,State,Static,Pre-season,State administrative name
+crop,Identifier,string,commodity,USDA NASS,National,Static,Pre-season,Commodity name (CORN)
+yield_bu_per_acre,Target,float,bushels/acre,USDA NASS Quick Stats,County,Annual,Post-harvest,Annual county corn yield per harvested acre
+precip_total_mm,Weather,float,mm,NOAA NCEI Climate at a Glance,County,6-month aggregate (Apr-Sep),End of growing season (Sep),Total cumulative growing-season precipitation
+tmax_avg_c,Weather,float,degrees Celsius,NOAA NCEI Climate at a Glance,County,6-month aggregate (Apr-Sep),End of growing season (Sep),Mean daily maximum temperature over growing season
+tmin_avg_c,Weather,float,degrees Celsius,NOAA NCEI Climate at a Glance,County,6-month aggregate (Apr-Sep),End of growing season (Sep),Mean daily minimum temperature over growing season
+heat_stress_days,Weather,float,days,Derived from NOAA CAG July Tmax,County,Monthly aggregate (July),End of July,Estimated days with severe heat stress (Tmax > 27.5C in critical pollination)
+vpd_avg_kpa,Weather,float,kilopascals,Derived via Tetens formula,County,6-month aggregate (Apr-Sep),End of growing season (Sep),Vapor Pressure Deficit estimated from monthly Tmax and Tmin
+precip_july_mm,Weather,float,mm,NOAA NCEI Climate at a Glance,County,Monthly aggregate (July),End of July,Total precipitation in critical silking/tasseling month
+tmax_july_c,Weather,float,degrees Celsius,NOAA NCEI Climate at a Glance,County,Monthly aggregate (July),End of July,Mean maximum temperature in critical silking/tasseling month
+gdd_total,Weather,float,degree-days,NOAA CAG Cooling Degree Days,County,6-month aggregate (Apr-Sep),End of growing season (Sep),Cumulative growing degree days (base 10C / 50F)
+gdd_june,Weather,float,degree-days,NOAA CAG Cooling Degree Days,County,Monthly aggregate (June),End of June,Cumulative GDD in vegetative growth month
+gdd_july,Weather,float,degree-days,NOAA CAG Cooling Degree Days,County,Monthly aggregate (July),End of July,Cumulative GDD in reproductive silking month
+gdd_august,Weather,float,degree-days,NOAA CAG Cooling Degree Days,County,Monthly aggregate (August),End of August,Cumulative GDD in grain-fill month
+ssurgo_om_pct,Soil,float,percent,USDA NRCS SSURGO (Soil Data Access),County mapunit weighted average,Static survey,Pre-season,Empirical surface soil organic matter percentage (0-30cm)
+ssurgo_ph,Soil,float,pH units,USDA NRCS SSURGO (Soil Data Access),County mapunit weighted average,Static survey,Pre-season,Empirical surface soil pH in 1:1 water solution
+ssurgo_clay_pct,Soil,float,percent,USDA NRCS SSURGO (Soil Data Access),County mapunit weighted average,Static survey,Pre-season,Empirical surface soil clay content percentage
+ssurgo_elev_m,Terrain,float,meters,USDA NRCS SSURGO Mapunit Elevation,County mapunit weighted average,Static survey,Pre-season,Representative topographic elevation in meters
