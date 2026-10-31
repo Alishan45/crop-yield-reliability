@@ -3,7 +3,7 @@
 [![Unit Tests](https://img.shields.io/badge/Unit%20Tests-PASS%20(5%2F5)-brightgreen)]()
 [![Python 3.10 | 3.11](https://img.shields.io/badge/Python-3.10%20%7C%203.11-blue)]()
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![DOI](https://img.shields.io/badge/DOI-10.5281%2Fzenodo.XXXXXXX-blue.svg)](https://zenodo.org/)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.23830250.svg)](https://doi.org/10.5281/zenodo.23830250)
 [![Data Provenance](https://img.shields.io/badge/Data%20Provenance-100%25%20Verified%20Empirical-success)]()
 
 This repository provides the official, verified, and open-science research codebase for the study:  
@@ -155,7 +155,7 @@ If you use this codebase, empirical dataset, or methodology in your research, pl
   author={Shan, Ali},
   journal={Computers and Electronics in Agriculture},
   year={2026},
-  doi={10.5281/zenodo.XXXXXXX},
+  doi={10.5281/zenodo.23830250},
   url={https://github.com/alishan45/crop-yield-reliability}
 }
 ```

@@ -4,6 +4,7 @@ title: "Beyond Prediction Accuracy: Reliability and Explainability of Machine Le
 abstract: "Codebase, empirical dataset, and experimental pipeline evaluating machine learning failure modes under secular trend drift in agricultural yield forecasting, conformal uncertainty quantification (Split Conformal, Time-Decayed Weighted Conformal Prediction, Adaptive Conformal Inference), and TreeSHAP attribution stability across sequential years."
 version: 1.0.0
 date-released: 2026-10-31
+doi: "10.5281/zenodo.23830250"
 license: MIT
 repository-code: "https://github.com/alishan45/crop-yield-reliability"
 authors:
